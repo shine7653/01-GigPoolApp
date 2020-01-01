@@ -1,0 +1,55 @@
+<section id="add" class="container">
+
+    <div class="title">
+        <h1>Add Gigs</h1>
+    </div>
+
+    <div class="form-wrap">
+        <p>Your email will be disclosed.</p>
+
+        {{#each errors}}
+        <div class="error">
+            <p>{{text}}</p>
+        </div>
+        {{/each}}
+
+        <form action="/gigs/add" method="POST">
+
+            <div class="form-group">
+                <label for="title">Gig Title</label>
+                <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp"
+                    placeholder="eg. FrontEnd Design, HTML CSS" value={{title}}>
+            </div>
+            <div class="form-group">
+                <label for="technologies">Technologies</label>
+                <input type="text" name="technologies" class="form-control" id="technologies"
+                    placeholder="eg. javascript, react, mySQL"value={{technologies}}>
+            </div>
+            <div class="form-group">
+                <label for="budget">Budget</label>
+                <input type="text" name="budget" class="form-control" id="budget" placeholder="eg. 30,000" value={{budget}}>
+            </div>
+            <div class="form-group">
+                <label for="email">Contact Email</label>
+                <input type="email" name="contact_email" class="form-control" id="contactEmail"
+                    placeholder="Enter email" value={{contact_email}}>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" class="form-control" id="description"
+                    placeholder="Describe the details of the gig" rows="5" value={{description}}>
+                    </textarea>
+            </div>
+
+
+            {{!-- <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> --}}
+            <button type="submit" class="btn btn-primary">Add Gig</button>
+        </form>
+
+    </div>
+
+
+</section>
