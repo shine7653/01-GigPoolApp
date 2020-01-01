@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
-const config = require(__dirname+'/../config/config.js');
+
 
 const Gig = db.define('gig', {
 

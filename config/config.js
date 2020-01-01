@@ -16,7 +16,7 @@ module.exports = {
     "operatorsAliases": false
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
+    "use_env_variable":"JAWSDB_URL",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
