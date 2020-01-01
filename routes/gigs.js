@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
 const Gig = require('../model/Gig');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 // Get gig list
 // router.get('/', (req, res) => res.send('GIGS'));
@@ -62,6 +64,15 @@ router.post('/add', (req, res) => {
             contact_email
         });
     } else {
+        // if (!budget) {
+        //     budget = 'Unknown';
+        // } else {
+        //     budget = `$${budget}`;
+        // }
+
+        // // Make lowercase and remove space after comma
+        // technologies = technologies.toLowerCase().replace(/, /g, ',');
+
         // Insert into table
         Gig.create({
             title,
@@ -72,10 +83,20 @@ router.post('/add', (req, res) => {
         })
             .then(gig => res.redirect('/gigs'))
             .catch(err => console.log(err));
-
     }
-
 });
+
+// Search for gigs
+router.get('/search', (req, res) => {
+    // req.query.term
+    const{ term } = req.query;
+
+    // '%' anything
+    Gig.findAll({ where: { technologies: { [Op.like]: '%' + term + '%' } }})
+    .then(gigs => res.render('gigss', { gigs }))
+    .catch(err => console.log(err));
+});
+
 
 
 module.exports = router;

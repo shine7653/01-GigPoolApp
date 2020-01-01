@@ -15,13 +15,22 @@ body {
 }
 
 li, a, button {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0 20px 0 0 ;
     /* background-color: #24252A; */
     font-family: "Montserrat", "Roboto";
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 18px;
     /* color: #edf0f1; */
     color: #24252A;
     text-decoration: none;
+}
+
+p {
+    font-family: "Montserrat", "Roboto";
+    /* font-weight: 50; */
+    font-size: 16px;
 }
 
 header {
