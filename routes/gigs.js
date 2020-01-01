@@ -81,7 +81,7 @@ router.post('/add', (req, res) => {
             description,
             contact_email
         })
-            .then(gig => res.redirect('/gigs'))
+            .then(gigs => res.redirect('/gigs'))
             .catch(err => console.log(err));
     }
 });
